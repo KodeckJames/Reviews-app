@@ -4,6 +4,7 @@ import Home from './screens/Home'
 import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
 import { useCallback } from 'react'
+import HomeStack from './routes/HomeStack'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -25,6 +26,7 @@ export default function App() {
 
   return (
     <View onLayout={onLayoutRootView}>
+      {/* <HomeStack /> */}
       <Home />
     </View>
   )

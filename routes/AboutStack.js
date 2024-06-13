@@ -1,14 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import Home from '../screens/Home'
-import ReviewDetails from '../screens/ReviewDetails'
+import About from '../screens/About'
 
 const Stack = createNativeStackNavigator()
-const HomeStack = () => {
+
+export default function AboutStack() {
   return (
     <Stack.Navigator
-      initialRouteName="Home"
       screenOptions={{
         headerStyle: {
           backgroundColor: '#eee',
@@ -18,20 +17,14 @@ const HomeStack = () => {
       }}
     >
       <Stack.Screen
-        name="Home"
-        component={Home}
+        name="About"
+        component={About}
         options={{
-          title: 'Game Zone',
-        }}
-      />
-      <Stack.Screen
-        name="Reviews"
-        component={ReviewDetails}
-        options={{
-          title: 'Reviews Details',
+          title: 'About Game Zone',
         }}
       />
     </Stack.Navigator>
   )
 }
-export default HomeStack
+
+const styles = StyleSheet.create({})

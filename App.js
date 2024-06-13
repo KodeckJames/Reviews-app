@@ -1,10 +1,9 @@
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, View } from 'react-native'
-import Home from './screens/Home'
 import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
 import { useCallback } from 'react'
-import HomeStack from './routes/HomeStack'
+import MyDrawer from './routes/MyDrawer'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -25,9 +24,13 @@ export default function App() {
   }
 
   return (
-    <View onLayout={onLayoutRootView}>
-      {/* <HomeStack /> */}
-      <Home />
+    <View style={styles.container} onLayout={onLayoutRootView}>
+      <MyDrawer />
     </View>
   )
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+})

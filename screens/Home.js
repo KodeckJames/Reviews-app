@@ -1,27 +1,51 @@
-import { Button, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import {
+  Button,
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+} from 'react-native'
+import React, { useState } from 'react'
 import { globalStyles } from '../styles/Global'
 
-export default function Home() {
+export default function Home({ navigation }) {
+  const [reviews, setReviews] = useState([
+    {
+      title: 'Zelda, Breath of Fresh Air',
+      rating: 5,
+      body: 'lorem ipsum',
+      key: '1',
+    },
+    {
+      title: 'Gotta Catch Them All (again)',
+      rating: 4,
+      body: 'lorem ipsum',
+      key: '2',
+    },
+    {
+      title: 'Not So "Final" Fantasy',
+      rating: 3,
+      body: 'lorem ipsum',
+      key: '3',
+    },
+  ])
+
   return (
     <View style={globalStyles.container}>
-      <Text style={globalStyles.titleText}>
-        Home Screen Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Saepe, aliquid? Doloremque adipisci dolorum voluptatem? Enim libero,
-        iste eligendi asperiores optio quis sapiente. Natus dolores repellendus
-        dicta soluta harum quod sint.
-      </Text>
-      <Button title="About" onPress={() => navigation.navigate('About')} />
+      <FlatList
+        data={reviews}
+        renderItem={({ item }) => {
+          return (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Reviews', item)}
+            >
+              <Text style={globalStyles.titleText}>{item.title}</Text>
+            </TouchableOpacity>
+          )
+        }}
+      />
+      {/* <Button title="Reviews" onPress={() => navigation.push('Reviews')} /> */}
     </View>
   )
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 40,
-  },
-  titleText: {
-    fontFamily: 'nunito-regular',
-    fontSize: 18,
-  },
-})

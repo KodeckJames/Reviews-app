@@ -15,6 +15,7 @@ const HomeStack = () => {
           height: 60,
         },
         headerTintColor: '#444',
+        headerShown: false,
       }}
     >
       <Stack.Screen
@@ -29,6 +30,7 @@ const HomeStack = () => {
         component={ReviewDetails}
         options={{
           title: 'Reviews Details',
+          headerShown: true,
         }}
       />
     </Stack.Navigator>

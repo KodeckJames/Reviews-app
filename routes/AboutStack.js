@@ -14,6 +14,7 @@ export default function AboutStack() {
           height: 60,
         },
         headerTintColor: '#444',
+        headerShown: false,
       }}
     >
       <Stack.Screen

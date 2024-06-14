@@ -12,16 +12,19 @@ const Drawer = createDrawerNavigator()
 export default function MyDrawer() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="HomeStack">
+      <Drawer.Navigator
+        initialRouteName="HomeStack"
+        screenOptions={{ title: 'GameZone' }}
+      >
         <Drawer.Screen
           name="HomeStack"
           component={HomeStack}
-          options={{ title: 'Home' }}
+          options={{ drawerLabel: 'Home' }}
         />
         <Drawer.Screen
           name="AboutStack"
           component={AboutStack}
-          options={{ title: 'About' }}
+          options={{ drawerLabel: 'About', title: 'About GameZone' }}
         />
       </Drawer.Navigator>
     </NavigationContainer>
